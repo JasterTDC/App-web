@@ -1,0 +1,18 @@
+
+/* 
+    Created on : 11-dic-2014, 18:33:39
+    Author     : Ismael Moral
+*/
+
+body { padding-top: 40px; padding-bottom: 40px; }
+h4 { background-color: #bce8f1; padding: 10px; border-radius: 5px; font-size: 12pt;}
+
+.polarity{ padding-top: 20px; padding-bottom: 20px; min-width: 200px;}
+.tweets-number { font-size: 11pt; } 
+.tweets-number .positives { color: blue; }
+.tweets-number .negatives { color: red; }
+.tweets-number .neut { color: gray; }
+.col-md-4 { border-radius: 5px; padding-right: 15px; }
+.lead { font-size: 11pt; text-align: right;}
+.tags { font-size: 11pt; text-align: justify; }
+.form-control { margin-bottom: 10px; }
