@@ -13,9 +13,8 @@ require './controller/statsController.php';
 $searchController = new searchController();
 $statsController = new statsController();
 
-/* Date section  */
-$from = "2014-10-01";
-$to = "2014-10-10";
+/* Work section.  */
+$statsController->loadMonthInfo(10);
 ?>
 <html>
     <head>
@@ -41,25 +40,25 @@ $to = "2014-10-10";
                 <div class="col-md-2">
                     <h4>Tweets procesados</h4>
                     <p class = "lead">
-                        <span class="tweets-number">1 - 10 Octubre : <?php echo $statsController->getCountDate($from, $to) ?> </span>
+                        <span class="tweets-number">Octubre: <?php echo $statsController->getTotal();  ?> </span> <br />
                     </p>
                 </div>
                 <div class="col-md-2">
                     <h4>Tweets positivos</h4>
                     <p class="lead">
-                        <span class="tweets-number"><?php echo $statsController->getCountDatePol(1, $from, $to);  ?> - <span class="positives"> <?php  ?> %</span></span>
+                        <span class="tweets-number"><?php echo $statsController->getPos();  ?> - <span class="positives"> <?php echo $statsController->getPositivesPerc(); ?> %</span></span>
                     </p>
                 </div>
                 <div class="col-md-2">
                     <h4>Tweets negativos</h4>
                     <p class="lead">
-                        <span class="tweets-number"><?php  ?> - <span class="negatives"> <?php  ?> %</span></span>                        
+                        <span class="tweets-number"><?php echo $statsController->getNeg();  ?> - <span class="negatives"> <?php echo $statsController->getNegativesPerc();  ?> %</span></span>                        
                     </p>
                 </div>
                 <div class="col-md-2">
                     <h4>Tweets neutros</h4>
                     <p class="lead">
-                        <span class="tweets-number"><?php  ?> - <span class="neut"> <?php  ?> %</span></span>                        
+                        <span class="tweets-number"><?php echo $statsController->getNeu(); ?> - <span class="neut"> <?php echo $statsController->getNeutresPerc(); ?> %</span></span>                        
                     </p>
                 </div>
                 <div class="col-md-4">
@@ -77,7 +76,7 @@ $to = "2014-10-10";
                 </div>
                 <div class="col-md-10">
                     <h4>Consultas</h4>
-                    <table class="table table-striped">
+                    <table class="table table-condensed">
                         <tr>
                             <th>Fecha</th>
                             <th>Palabra clave</th>

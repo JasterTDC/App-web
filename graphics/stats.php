@@ -5,11 +5,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 /* Includes section.  */
-require '../models/DAOJsonInterface.php';
 require '../models/DAOJson.php';
-require '../models/DAOJsonMicrosoft.php';
-require '../models/DAOJsonGoogle.php';
-require '../models/DAOJsonApple.php';
 require '../models/DAOLatestSeeks.php';
 require '../controller/graphicsController.php';
 
