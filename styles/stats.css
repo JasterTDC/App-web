@@ -3,9 +3,7 @@
     Created on : 07-ene-2015, 10:46:10
     Author     : Ismael Moral
 */
-#microsoft-json{ visibility: hidden; }
-#apple-json{ visibility: hidden; }
-#google-json{ visibility: hidden; }
+#json{ visibility: hidden; }
 
 .graphics { min-width: 600px; min-height: 300px; }
 

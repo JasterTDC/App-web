@@ -25,6 +25,19 @@ class DAOJson{
     }
     
     /**
+     * Search in the api all information about one term. 
+     * 
+     * @param String $term keyword. 
+     * @return \JsonFile json file with all info. 
+     */
+    public function searchGlobalTerm ($term){
+        $json = new JsonFile ($this->host. '/api/key/' . $term );
+        $json->parse();
+        
+        return $json;
+    }
+    
+    /**
      * Search in the api all information with this polarity level. 
      * 
      * @param String $theme collection name.

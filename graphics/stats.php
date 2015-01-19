@@ -46,20 +46,10 @@ $daoSeek->insertLS(new LatestSeeks($_GET['keyword']));
             var dataArray = [["Dia", "Polaridad"]];
             
             function evalTextArea (){
-                var micro = JSON.parse (document.getElementById("microsoft-json").value);
-                var apple = JSON.parse (document.getElementById("apple-json").value);
-                var google = JSON.parse (document.getElementById("google-json").value);
+                var micro = JSON.parse (document.getElementById("json").value);
                 
                 for (var i = 0; i < micro.length; i++){
                     dataArray.push ([micro[i].date, micro[i].polarity]);
-                }
-                
-                for (var i = 0; i < apple.length; i++){
-                    dataArray.push ([apple[i].date, apple[i].polarity]);
-                }
-                
-                for (var i = 0; i < google.length; i++){
-                    dataArray.push ([google[i].date, google[i].polarity]);
                 }
                 console.log(dataArray.length);
             }
@@ -82,9 +72,7 @@ $daoSeek->insertLS(new LatestSeeks($_GET['keyword']));
 
     <body>
         <div class="container">
-            <textarea id='microsoft-json' ><?php echo $gcontrol->getMicrosoft()->getContent(); ?></textarea>
-            <textarea id='apple-json'><?php echo $gcontrol->getApple()->getContent(); ?></textarea>
-            <textarea id='google-json'><?php echo $gcontrol->getGoogle()->getContent(); ?></textarea>
+            <textarea id='json' ><?php echo $gcontrol->getRes()->getContent(); ?></textarea>
             
             <div id='line-chart' class='graphics'>
             </div>

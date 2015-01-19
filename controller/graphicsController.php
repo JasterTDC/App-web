@@ -6,20 +6,11 @@
  * @author Ismael Moral
  */
 class graphicsController {
+
     /**
-     * @var DAOJsonGoogle Json parser from google collection. 
+     * @var DAOJson json management.
      */
-    private $daoGoogle;
-    
-    /**
-     * @var DAOJsonMicrosoft Json parser from microsoft collection. 
-     */
-    private $daoMicrosoft;
-    
-    /**
-     * @var DAOJsonApple Json parser from apple collection. 
-     */
-    private $daoApple;
+    private $daoJson;
 
     /**
      * @var String Keyword.
@@ -27,28 +18,17 @@ class graphicsController {
     private $keyword;
     
     /**
-     * @var JsonFile Google results. 
+     * @var JsonFile query results. 
      */
-    private $google;
-    
-    /**
-     * @var JsonFile Microsoft results.  
-     */
-    private $microsoft;
-    
-    /**
-     * @var JsonFile Apple results. 
-     */
-    private $apple;
+    private $res;
+   
     /**
      * Class constructor. 
      * 
      * @param String $keyword Palabra clave. 
      */
     public function __construct($keyword) {
-        $this->daoGoogle = new DAOJsonGoogle();
-        $this->daoMicrosoft = new DAOJsonMicrosoft();
-        $this->daoApple = new DAOJsonApple();
+        $this->daoJson = new DAOJson("http://localhost:1556");
         $this->keyword = $keyword;
     }
     
@@ -56,35 +36,15 @@ class graphicsController {
      * Search keyword into the API. 
      */
     public function searchKeyword (){
-        $this->apple = $this->daoApple->searchTerm($this->keyword);
-        $this->google = $this->daoGoogle->searchTerm($this->keyword);
-        $this->microsoft = $this->daoMicrosoft->searchTerm($this->keyword);
+        $this->res = $this->daoJson->searchGlobalTerm($this->keyword);
     }
     
     /**
-     * JsonFile getter from Apple collection. 
+     * Results getter. 
      * 
-     * @return JsonFile Apple json. 
+     * @return JsonFile json file with all info. 
      */
-    public function getApple (){
-        return $this->apple;
-    }
-    
-    /**
-     * JsonFile getter from Google collection. 
-     * 
-     * @return JsonFile Google json. 
-     */
-    public function getGoogle (){
-        return $this->google;
-    }
-    
-    /**
-     * JsonFile getter from Microsoft collection. 
-     * 
-     * @return JsonFile Microsoft json. 
-     */
-    public function getMicrosoft (){
-        return $this->microsoft;
+    public function getRes (){
+        return $this->res;
     }
 }
