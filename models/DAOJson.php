@@ -151,4 +151,19 @@ class DAOJson{
         
         return $json;
     }
+    
+    /**
+     * Search in the api all infomation about news. 
+     * 
+     * @param String $keyword keyword
+     * @param String $from date.
+     * @param String $to date.
+     * @return \JsonFile json file with all the info. 
+     */
+    public function searchFeedDate ($keyword, $from, $to){
+        $json = new JsonFile ($this->host . '/api/feed/chart/descDate?keyword=' . $keyword . '&from=' . $from . '&to=' . $to);
+        $json->parse();
+        
+        return $json;
+    }
 }

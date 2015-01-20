@@ -23,6 +23,11 @@ class graphicsController {
     private $res;
    
     /**
+     * @var JsonFile news results. 
+     */
+    private $news;
+    
+    /**
      * Class constructor. 
      * 
      * @param String $keyword Palabra clave. 
@@ -40,11 +45,27 @@ class graphicsController {
     }
     
     /**
+     * Search keyword into the API. 
+     */
+    public function searchNews (){
+        $this->news = $this->daoJson->searchFeedDate($this->keyword, "2014-09-01", "2014-11-30");
+    }
+    
+    /**
      * Results getter. 
      * 
      * @return JsonFile json file with all info. 
      */
     public function getRes (){
         return $this->res;
+    }
+    
+    /**
+     * Keyword getter. 
+     * 
+     * @return String keyword. 
+     */
+    public function getKeyword (){
+        return $this->keyword;
     }
 }

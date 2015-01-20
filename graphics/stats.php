@@ -49,7 +49,7 @@ $daoSeek->insertLS(new LatestSeeks($_GET['keyword']));
                 var micro = JSON.parse (document.getElementById("json").value);
                 
                 for (var i = 0; i < micro.length; i++){
-                    dataArray.push ([micro[i].date, micro[i].polarity]);
+                    dataArray.push ([new Date(micro[i].date), micro[i].polarity]);
                 }
                 console.log(dataArray.length);
             }
@@ -59,10 +59,20 @@ $daoSeek->insertLS(new LatestSeeks($_GET['keyword']));
                 evalTextArea();
                 
                 var options = {
-                title : "Nivel de polaridad",
-                        curveType : "function",
-                        legend : { position : "bottom" }
-                };
+                    width: 1000,
+                    height: 300,
+                    hAxis: {
+                        title: 'Tiempo'
+                    },
+                    vAxis: {
+                        title: 'Polaridad'
+                    }
+                }
+//                var options = {
+//                title : "Nivel de polaridad",
+//                        curveType : "function",
+//                        legend : { position : "bottom" }
+//                };
                 var dataChart = google.visualization.arrayToDataTable (dataArray);
                 var chart = new google.visualization.LineChart (document.getElementById('line-chart'));
                 chart.draw (dataChart, options);
@@ -74,7 +84,20 @@ $daoSeek->insertLS(new LatestSeeks($_GET['keyword']));
         <div class="container">
             <textarea id='json' ><?php echo $gcontrol->getRes()->getContent(); ?></textarea>
             
+            <div class="row">
+                <h3>Búsqueda</h3>
+                <p class="formated">Resultados para el término: <span class="bold"><?php echo $gcontrol->getKeyword(); ?> </span></p>
+                <p class="formated">
+                    Si desea ver más información acerca de los tweets pase el puntero del ratón por la gráfica para ver el nivel de 
+                    polaridad y la fecha y hora en la que fue publicado el tweet. 
+                </p>
+            </div>
+            
             <div id='line-chart' class='graphics'>
+            </div>
+            
+            <div class="row">
+                
             </div>
         </div>
     </body>

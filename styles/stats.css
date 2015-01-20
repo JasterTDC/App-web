@@ -8,3 +8,7 @@
 .graphics { min-width: 600px; min-height: 300px; }
 
 h4 { background-color: #bce8f1; padding: 10px; border-radius: 5px; font-size: 12pt;}
+h3 { background-color: #bce8f1; padding: 10px; border-radius: 3px; font-size: 15pt;}
+
+.formated { padding-left: 10px; }
+.bold { font-weight: bold; }

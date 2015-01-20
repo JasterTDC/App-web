@@ -38,7 +38,7 @@ class DAOLatestSeeks {
     public function searchLS (){
         $list = array ();
         
-        $query = "SELECT * FROM `latestSeeks` ORDER BY `Date` DESC LIMIT 10;";
+        $query = "SELECT * FROM `latestSeeks` ORDER BY `Date` DESC LIMIT 5;";
         $this->dbConnection->dbQuery($query);
         while (($ls = $this->dbConnection->nextRow()) != false){
             $newls = new LatestSeeks($ls["Name"]);
