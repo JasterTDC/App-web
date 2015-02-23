@@ -5,7 +5,7 @@
 */
 
 body { padding-top: 40px; padding-bottom: 40px; }
-h4 { background-color: #bce8f1; padding: 10px; border-radius: 5px; font-size: 12pt;}
+h4 { background-color: #55ACEE; padding: 10px; border-radius: 5px; font-size: 12pt; font-weight: bold; color: #F5F8FA;}
 
 .polarity{ padding-top: 20px; padding-bottom: 20px; min-width: 200px;}
 .tweets-number { font-size: 11pt; } 

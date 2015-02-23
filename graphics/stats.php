@@ -12,6 +12,7 @@ require '../controller/graphicsController.php';
 /* Work section.  */
 $gcontrol = new graphicsController($_GET['keyword']);
 $gcontrol->searchKeyword();
+$gcontrol->searchNews();
 
 /* Latest Seeks */
 $daoSeek = new DAOLatestSeeks();
@@ -97,7 +98,24 @@ $daoSeek->insertLS(new LatestSeeks($_GET['keyword']));
             </div>
             
             <div class="row">
+                <?php 
+                    if ($gcontrol->getNews()->getNumItems() > 0) { 
+                        echo "<h3>Noticias</h3>"; 
+                    }else{
+                        echo "<h3>Tweets</h3>";
+                    } 
                 
+                ?>
+                <?php
+                    for ($i = 0; $i < $gcontrol->getNews()->getNumItems(); $i++){
+                        if ($gcontrol->getNews()->getNumItems() > 0){
+                            echo "<div class='col-md-4' >";
+                            echo "<p class='title'>".$gcontrol->getNews()->getDocAttribute($i, "title")."</p>";
+                            echo "<p class='description'>".$gcontrol->getNews()->getDocAttribute($i, "description")."</p>";
+                            echo "</div>";
+                        }
+                    }
+                ?>
             </div>
         </div>
     </body>

@@ -25,7 +25,7 @@ $statsController->loadMonthInfo(10);
         <!-- Include bootstrap stylesheets -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="styles/main.css">
-
+        <link rel="stylesheet" href="styles/jquery.datetimepicker.css">
         <!-- JavaScript placed at the end of the document so the pages load faster -->
         <!-- Optional: Include the jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -38,7 +38,7 @@ $statsController->loadMonthInfo(10);
                 <?php
                 ?>
                 <div class="col-md-2">
-                    <h4>Tweets procesados</h4>
+                    <h4>Tweets proc.</h4>
                     <p class = "lead">
                         <span class="tweets-number">Octubre: <?php echo $statsController->getTotal();  ?> </span> <br />
                     </p>
@@ -70,12 +70,17 @@ $statsController->loadMonthInfo(10);
                 <div class="col-md-2">
                     <h4>Buscar</h4>
                     <form method="get" action="graphics/stats.php" target="_self">
+                        <label for="keyword"> Palabra clave </label>
                         <input name="keyword" type="text" class="form-control" placeholder="Palabra clave" />
+                        <label for="startDate"> Fecha de inicio </label>
+                        <input id="startDate" name="startDate" type="datetime" class="form-control" placeholder="" value="" />
+                        <label for="endDate"> Fecha de fin </label>
+                        <input id="endDate" name="endDate" type="datetime" class="form-control" placeholder="" value="" />
                         <button name="Buscar" type="submit" class="btn btn-primary" placeholder="Buscar">Buscar</button>
                     </form>
                 </div>
                 <div class="col-md-10">
-                    <h4>Consultas</h4>
+                    <h4>Últimas consultas realizadas</h4>
                     <table class="table table-condensed">
                         <tr>
                             <th>Fecha</th>
@@ -91,6 +96,24 @@ $statsController->loadMonthInfo(10);
 
         <!-- Optional: Incorporate the Bootstrap JavaScript plugins -->
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+        <!-- Incorporate jquery.datetimerpicker  -->
+        <script src="scripts/jquery.js"></script>
+        <script src="scripts/jquery.datetimepicker.js" ></script>
+        <!-- Datetimerpicker form field.  -->
+        <script type="text/javascript">
+            $('#startDate').datetimepicker({
+                timepicker: false,
+                dayOfWeekStart : 1,
+                lang:'es'
+            });
+            $('#endDate').datetimepicker({
+                timepicker: false,
+                dayOfWeekStart : 1,
+                lang: 'es'
+            });
+            $('#startDate').datetimepicker({ value: '2014-10-01', step: 10 });
+            $('#endDate').datetimepicker({ value: '2014-10-10', step: 10 })
+        </script>
     </body>
 </html>
 

@@ -12,3 +12,5 @@ h3 { background-color: #bce8f1; padding: 10px; border-radius: 3px; font-size: 15
 
 .formated { padding-left: 10px; }
 .bold { font-weight: bold; }
+.title { font-weight: bold; font-size: 14pt;}
+.description { text-align: justify; }

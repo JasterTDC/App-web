@@ -61,6 +61,15 @@ class graphicsController {
     }
     
     /**
+     * News getter. 
+     * 
+     * @return JsonFile json file with all info. 
+     */
+    public function getNews (){
+        return $this->news;
+    }
+    
+    /**
      * Keyword getter. 
      * 
      * @return String keyword. 
