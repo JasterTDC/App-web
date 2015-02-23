@@ -166,4 +166,33 @@ class DAOJson{
         
         return $json;
     }
+    
+    /**
+     * Search in the api all information about one keyword. 
+     * 
+     * @param Text $keyword keyword. 
+     * @param Date $from initial date. 
+     * @param Date $to end date. 
+     * @return \JsonFile json file with all the info. 
+     */
+    public function searchKeywordDate ($keyword, $from, $to){
+        $json = new JsonFile ($this->host . '/api/keydate?keyword=' . $keyword . '&from=' . $from . '&to=' . $to);
+        $json->parse();
+        
+        return $json;
+    }
+    
+    /**
+     * Get summary from the api. 
+     * 
+     * @param String $from initial date. 
+     * @param String $to end date. 
+     * @return \JsonFile json file with all the info. 
+     */
+    public function getSummary ($from, $to){
+        $json = new JsonFile ($this->host . '/api/avg/date?from=' .$from. '&to=' .$to);
+        $json->parse();
+        
+        return $json;
+    }
 }

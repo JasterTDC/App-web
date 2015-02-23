@@ -18,6 +18,16 @@ class graphicsController {
     private $keyword;
     
     /**
+     * @var Text initial date. 
+     */
+    private $from;
+    
+    /**
+     * @var Text end date. 
+     */
+    private $to;
+    
+    /**
      * @var JsonFile query results. 
      */
     private $res;
@@ -32,16 +42,18 @@ class graphicsController {
      * 
      * @param String $keyword Palabra clave. 
      */
-    public function __construct($keyword) {
+    public function __construct($keyword, $from, $to) {
         $this->daoJson = new DAOJson("http://localhost:1556");
         $this->keyword = $keyword;
+        $this->from = $from;
+        $this->to = $to;
     }
     
     /**
      * Search keyword into the API. 
      */
     public function searchKeyword (){
-        $this->res = $this->daoJson->searchGlobalTerm($this->keyword);
+        $this->res = $this->daoJson->searchKeywordDate($this->keyword, $this->from, $this->to);
     }
     
     /**

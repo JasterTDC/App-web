@@ -3,12 +3,12 @@
     Created on : 07-ene-2015, 10:46:10
     Author     : Ismael Moral
 */
-#json{ visibility: hidden; }
+#json{ visibility: hidden;}
 
 .graphics { min-width: 600px; min-height: 300px; }
 
-h4 { background-color: #bce8f1; padding: 10px; border-radius: 5px; font-size: 12pt;}
-h3 { background-color: #bce8f1; padding: 10px; border-radius: 3px; font-size: 15pt;}
+h4 { background-color: #55ACEE; padding: 10px; border-radius: 5px; font-size: 12pt; font-weight: bold; color: #F5F8FA;}
+h3 { background-color: #55ACEE; padding: 10px; border-radius: 3px; font-size: 15pt; color: #F5F8FA;}
 
 .formated { padding-left: 10px; }
 .bold { font-weight: bold; }

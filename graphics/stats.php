@@ -10,7 +10,7 @@ require '../models/DAOLatestSeeks.php';
 require '../controller/graphicsController.php';
 
 /* Work section.  */
-$gcontrol = new graphicsController($_GET['keyword']);
+$gcontrol = new graphicsController($_GET['keyword'], $_GET['startDate'], $_GET['endDate']);
 $gcontrol->searchKeyword();
 $gcontrol->searchNews();
 
@@ -50,7 +50,7 @@ $daoSeek->insertLS(new LatestSeeks($_GET['keyword']));
                 var micro = JSON.parse (document.getElementById("json").value);
                 
                 for (var i = 0; i < micro.length; i++){
-                    dataArray.push ([new Date(micro[i].date), micro[i].polarity]);
+                    dataArray.push ([new Date(micro[i].date), micro[i].sum]);
                 }
                 console.log(dataArray.length);
             }
