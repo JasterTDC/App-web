@@ -38,6 +38,11 @@ class graphicsController {
     private $news;
     
     /**
+     * @var JsonFile tweets results. 
+     */
+    private $tweets;
+    
+    /**
      * Class constructor. 
      * 
      * @param String $keyword Palabra clave. 
@@ -64,6 +69,22 @@ class graphicsController {
     }
     
     /**
+     * Search tweets in the API. 
+     */
+    public function searchTweets (){
+        $this->tweets = $this->daoJson->searchTweetsKeywordDate($this->keyword, $this->from, $this->to); 
+    }
+    
+    /**
+     * Get the number of tweets of a query. 
+     * 
+     * @return Integer Tweets number. 
+     */
+    public function getNumTweets (){
+        return $this->daoJson->getNumTweetsKeywordDate($this->keyword, $this->from, $this->to)->getDocAttribute(0, "Num");
+    }
+    
+    /**
      * Results getter. 
      * 
      * @return JsonFile json file with all info. 
@@ -79,6 +100,15 @@ class graphicsController {
      */
     public function getNews (){
         return $this->news;
+    }
+    
+    /**
+     * Tweets getter. 
+     * 
+     * @return JsonFile json file with all the info. 
+     */
+    public function getTweets (){
+        return $this->tweets;
     }
     
     /**

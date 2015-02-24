@@ -168,6 +168,36 @@ class DAOJson{
     }
     
     /**
+     * Search in the api all tweets which contains keyword. 
+     * 
+     * @param String $keyword keyword. 
+     * @param String $from initial date. 
+     * @param String $to end date. 
+     * @return \JsonFile JsonFile with all info. 
+     */
+    public function searchTweetsKeywordDate ($keyword, $from, $to){
+        $json = new JsonFile ($this->host . '/api/tw/keydate?keyword=' . $keyword . '&from=' . $from . '&to=' . $to);
+        $json->parse();
+        
+        return $json;
+    }
+    
+    /**
+     * Get count of a query. 
+     * 
+     * @param String $keyword keyword. 
+     * @param String $from initial date. 
+     * @param String $to end date. 
+     * @return \JsonFile JsonFile with all info. 
+     */
+    public function getNumTweetsKeywordDate ($keyword, $from, $to){
+        $json = new JsonFile ($this->host . '/api/count/keydate?keyword=' . $keyword . '&from=' . $from . '&to=' . $to);
+        $json->parse();
+        
+        return $json;        
+    }
+    
+    /**
      * Search in the api all information about one keyword. 
      * 
      * @param Text $keyword keyword. 

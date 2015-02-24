@@ -33,7 +33,7 @@ class summaryController {
      * @param String $to End date. 
      */
     public function calculateSummary ($from, $to){
-        $this->summary = $this->daoJson->getSummary($from, $to);
+        $this->summary = $this->daoJson->searchKeywordDate("Google", $from, $to);
     }
     
     /**

@@ -84,8 +84,6 @@ $statsController->loadMonthInfo(10);
     </head>
 
     <body>
-
-        <textarea id="summary"><?php echo $summary->getSummary()->getContent(); ?></textarea>
         
         <div class="container">
             <div class="row">
@@ -147,7 +145,10 @@ $statsController->loadMonthInfo(10);
 
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="col-md-10"><h4>Resumen de Octubre</h4></div>
+                <div class="col-md-10">
+                    <h4>Resumen de Octubre</h4>
+                    <p>En la grafica posterior se muestra una media diaria de polaridad del t&eacute;rmino "Google" para todo el mes de Octubre. </p>
+                </div>
             </div>
             
             <div class="row">                
@@ -155,6 +156,8 @@ $statsController->loadMonthInfo(10);
                 <div id="line-chart" class="col-md-10"></div>
             </div>
 
+            <textarea id="summary"><?php echo $summary->getSummary()->getContent(); ?></textarea>
+            
         </div>
 
         <!-- Optional: Incorporate the Bootstrap JavaScript plugins -->
